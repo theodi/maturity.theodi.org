@@ -42,7 +42,7 @@ body {
   color: #dbdbdb;
   color: var(--text-main);
   background: #202b38;
-  background: var(--background-body);
+  background: var(--text-bright);
   text-rendering: optimizeLegibility;
 }
 

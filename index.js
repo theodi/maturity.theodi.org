@@ -6,6 +6,8 @@ require("dotenv").config({ path: "./config.env" });
 
 // MongoDB setup
 const mongoose = require('mongoose');
+const MongoStore = require("connect-mongo");
+
 
 // Read MongoDB URI and database name from environment variables
 const mongoURI = process.env.MONGO_URI;
@@ -25,9 +27,17 @@ const { initializeScheduledJobs } = require('./controllers/hubspot');
 const app = express();
 const port = process.env.PORT || 3080;
 app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views")); // Ensure correct path
+
 
 // Connect to MongoDB
-mongoose.connect(mongoURI, { dbName: mongoDB });
+mongoose.connect(mongoURI, {
+  dbName: mongoDB,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // tls: true, // Ensure TLS is enabled
+  // serverSelectionTimeoutMS: 50000, // Increase timeout
+});
 
 const db = mongoose.connection;
 
@@ -48,11 +58,27 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 // Other middleware and setup code...
 
 // Session configuration
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: process.env.SESSION_SECRET,
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI, // Your MongoDB connection string
+      dbName: process.env.MONGO_DB, // Your MongoDB database name
+      collectionName: "sessions", // Name of the collection to store sessions
+      crypto: {
+        secret: process.env.SESSION_SECRET, // Encrypt session data
+      },
+    }),
+    
+    // cookie: {
+    //   secure: true, // Set to true in production (HTTPS)
+    //   httpOnly: true, // Prevents JavaScript access to cookies
+    //   maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days expiration
+    // },
+  })
+);
 
 // Middleware for user object
 
@@ -126,6 +152,7 @@ function unauthorised(res) {
 
 app.use(express.static(__dirname + '/public')); // Public directory
 
+
 // Use authentication routes
 app.use('/auth', authRoutes);
 
@@ -143,10 +170,12 @@ app.use('/projects', projectRoutes);
 app.get('/', function(req, res) {
   const page = {
     title: "ODI Maturity Assessment Tool",
-    link: "/"
+    // link: "/"
+    link: "/auth/local"
   };
   res.locals.page = page;
-  res.render('pages/home');
+  // res.render('pages/home');
+  res.render('pages/auth/localLogin');
 });
 
 app.get('/about', function(req, res) {

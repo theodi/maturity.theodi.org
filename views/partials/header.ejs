@@ -1,64 +1,154 @@
 <!-- views/partials/header.ejs -->
 <!DOCTYPE html>
-<html prefix="dct: http://purl.org/dc/terms/
+<html
+  prefix="dct: http://purl.org/dc/terms/
               rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
               dcat: http://www.w3.org/ns/dcat#
-              odrs: http://schema.theodi.org/odrs#">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title><%= page.title %></title>
+              odrs: http://schema.theodi.org/odrs#"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title><%= page.title %></title>
 
-<script type="text/javascript" src="/lib/jquery-3.7.1.min.js"></script>
-<script type="text/javascript" src="/lib/underscore.js"></script>
-<script type="text/javascript" src="/lib/jquery-ui.js"></script>
-<script type="text/javascript" src="/lib/jsv.js"></script>
-<script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/lib/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="/lib/underscore.js"></script>
+    <script type="text/javascript" src="/lib/jquery-ui.js"></script>
+    <script type="text/javascript" src="/lib/jsv.js"></script>
+    <script type="text/javascript" src="/lib/jsonform.js"></script>
 
-<link href="/css/water.css" rel="stylesheet">
-<link href="/css/glyphicon.css" rel="stylesheet">
-<link href="/css/style.css" rel="stylesheet">
-<link rel="shortcut icon" href="/images/odifavicon32.ico">
+    <link href="/css/water.css" rel="stylesheet" />
+    <link href="/css/glyphicon.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/odifavicon32.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .header {
+      background-color: #fff;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-</head>
-<body>
-	<div id="contentOverlay" class="overlay">
-		<div id="overlay-content" class="overlay-content" style="width: 90%; margin: auto; margin-top: 20px; max-height: 90vh;">
-			<span class="close-btn" onclick="closeOverlay()" style="right: 40px;
-			top: 20px;
-			font-size: 3rem;
-			font-weight: normal;">&times;</span>
-			<div id="overlay-content-inner" style="overflow-y: scroll; min-width: 100%;"></div>
-		</div>
-	</div>
-	<header class="header">
-		<p class="version"><a href="<%= software.versionLink %>" target="_blank">v<%= software.version %></a></p>
-		<div class="container">
-			<div class="header-top">
-			<a href="/" class="logo"></a>
-			<nav class="main-nav" aria-label="Main Menu">
-				<ul>
-				<% if(user) { %>
-					<li><a href="/projects" class="toggle-link <% if (page.link === '/projects') { %>selected<% } %>">Assessments dashboard</a></li>
-					<% if (user.authMethod === 'google') { %>
-						<!--<li><a href="/auth/local/reset-password">View/Change local password</a></li>-->
-					<% } %>
-					<li><a href="/about" id="privacy-link" class="toggle-link <% if (page.link === '/about') { %>selected<% } %>">Your privacy</a></li>
-					<li>
-						<a style="padding: 0;" class="toggle-link <% if (page.link === '/auth/profile') { %>selected<% } %>" href="/auth/profile"><%= user ? (user.displayName || (user.first_name && user.last_name ? user.first_name + ' ' + user.last_name : user.email)) : 'Guest' %></a>
-						<form style="display: inline-flex;" id="logout_form" action="/logout" method="post">
-							 &nbsp;(<a href="javascript:;" onclick="document.getElementById('logout_form').submit();">Logout)</a>
-						</form>
-					</li>
-				<% } else { %>
-					<li><a href="/about" id="privacy-link" class="toggle-link <% if (page.link === '/about') { %>selected<% } %>">Your privacy</a></li>
-					<li><a href="/auth/django" class="toggle-link">Login</a></li>
-				<% } %>
-				</ul>
-			</nav>
-			</div>
-		</div>
-	</header>
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+
+    .nav li {
+      display: inline-block;
+      margin-bottom: 0px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: black;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: underline;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Get a Demo Button */
+    .demo-button {
+      background-color: #ff4365;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .demo-button:hover {
+      background-color: #ff4365;
+	  color: #ead1dc;
+	  text-decoration: none;
+    }
+  </style>
+  <body>
+    <div id="contentOverlay" class="overlay">
+      <div
+        id="overlay-content"
+        class="overlay-content"
+        style="width: 90%; margin: auto; margin-top: 20px; max-height: 90vh"
+      >
+        <span
+          class="close-btn"
+          onclick="closeOverlay()"
+          style="right: 40px; top: 20px; font-size: 3rem; font-weight: normal"
+          >&times;</span
+        >
+        <div
+          id="overlay-content-inner"
+          style="overflow-y: scroll; min-width: 100%"
+        ></div>
+      </div>
+    </div>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo">
+            <img src="/images/header-logo.svg" alt="MetadataWorks Logo" />
+          </a>
+          <div class="header-right">
+            <nav class="nav">
+              <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/solutions" class="nav-link">Solutions</a></li>
+                <li>
+                  <a href="/case-studies" class="nav-link">Case Studies</a>
+                </li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li><a href="/insights" class="nav-link">Insights</a></li>
+              </ul>
+            </nav>
+
+            <a href="/demo" class="demo-button">Get a Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- Start of HubSpot Embed Code -->
+       <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49501356.js"></script>
+       <!-- End of HubSpot Embed Code -->
+    </header>
+  </body>
+</html>

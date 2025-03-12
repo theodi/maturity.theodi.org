@@ -21,6 +21,7 @@
     "@hubspot/api-client": "^11.1.0",
     "bcrypt": "^5.1.1",
     "cheerio": "^1.0.0",
+    "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "csv-parse": "^5.5.6",
     "csv-parser": "^3.0.0",

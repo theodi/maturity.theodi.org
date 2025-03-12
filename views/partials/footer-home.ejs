@@ -1,120 +1,159 @@
 <style>
+  .footer {
+    align-items: flex-start;
+    padding:100px 60px 30px 60px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+    border-top: 1px solid #ddd;
+    width: 100%;
+  
+  }
+  .footer-top {
+    display: flex;
+    width: 100%;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-left img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tagline {
+    font-size: 18px;
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 2px;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-icons img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 100px;
+    padding-left:200px
+  }
+
+  .footer-links div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-links div p {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .footer-links div a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  .footer-bottom {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 150px 0 20px 0;
+  }
+  /* Responsive Design */
+  @media (max-width: 768px) {
     .footer {
-        --tw-bg-opacity: 1;
-        background-color: #072589;
-        background-color: rgba(7,37,137,1);
-        --tw-text-opacity: 1;
-        color: #fff;
-        color: rgba(255,255,255,1);
-        padding-bottom: 5rem;
-        padding-top: 5rem;
-        flex-shrink: 0;
-        margin-top: 0px;
-    }
-    .footer .odi-logo svg {
-        fill: #fff;
-        height: 42px;
-        margin-left: 0px;
-    }
-    .footer .odi-logo {
-        margin-left: 0px;
-    }
-    .footer__address {
-        margin-bottom: 3.5rem;
-        margin-top: 2.5rem;
-    }
-    .footer ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .footer__social-media {
-        width: 100%;
-        align-items: center;
-        display: flex;
-    }
-    .footer__social-media li {
-        margin-right: 1em;
-    }
-        /* Container styling */
-    footer.container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        color: #fff; /* Example text color */
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
     }
 
-    /* Column styling */
-    footer .column {
-        flex: 1;
-        min-width: 200px; /* Minimum width of each column */
-        padding: 10px;
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
-
-    /* Flex properties for responsive design */
-    @media (max-width: 768px) {
-        footer.container {
-            flex-direction: column;
-        }
-    }
+  }
 </style>
-<footer class="container dark-blue footer">
-    <div class="column">
-        <span class="odi-logo">
-            <svg viewBox="0 0 77.1 32.3" preserveAspectRatio="xMinYMin" xml:space="preserve">
-            <path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"></path>
-            </svg>
-            <svg viewBox="0 0 77.1 32.3" preserveAspectRatio="xMinYMin" xml:space="preserve">
-            <path d="M32.4 17.3c-.1 0-.3.1-.4.1-.1 0-.3.1-.4.1-.2 0-.3 0-.5.1-.2 0-.3.1-.4.1s-.3.1-.4.2-.2.2-.2.3c-.1.1-.1.3-.1.5s0 .3.1.5.2.2.3.3c.1.1.2.1.4.1h.4c.4 0 .7-.1.9-.2.2-.1.4-.3.5-.5s.2-.4.2-.6V17c-.1.2-.2.3-.4.3zm-3.8-2.8c.2-.3.4-.6.8-.8.3-.2.7-.3 1.1-.4.4-.1.8-.1 1.2-.1s.7 0 1.1.1c.4.1.7.2 1 .3.3.2.5.4.7.6.2.3.3.6.3 1.1v3.8c0 .3 0 .7.1 1 0 .3.1.5.2.7h-2c0-.1-.1-.2-.1-.4 0-.1 0-.2-.1-.4-.3.3-.7.6-1.1.7s-.8.2-1.3.2c-.3 0-.7 0-.9-.1-.3-.1-.6-.2-.8-.4-.2-.2-.4-.4-.5-.7-.1-.3-.2-.6-.2-1s.1-.8.2-1c.1-.3.3-.5.6-.6.2-.2.5-.3.8-.4s.6-.1.9-.2c.3 0 .6-.1.9-.1s.5-.1.8-.1.4-.1.5-.2.2-.3.2-.5 0-.4-.1-.5l-.3-.3s-.2-.1-.4-.1h-.5c-.4 0-.7.1-.9.3s-.3.5-.4.9h-1.9c-.2-.7-.1-1.1.1-1.4zm-1.4-1.1v1.4h-1.4v3.7c0 .3.1.6.2.7s.3.2.7.2h.6V21c-.2 0-.3 0-.6.1h-.6c-.3 0-.6 0-.9-.1s-.5-.1-.7-.3c-.2-.1-.4-.3-.5-.5s-.2-.5-.2-.9v-4.4h-1.2v-1.4h1.2v-2.2h1.9v2.2l1.5-.1zm-7.5 3.9c-.1 0-.3.1-.4.1s-.3.1-.4.1c-.2 0-.3 0-.5.1-.2 0-.3.1-.4.1s-.3.1-.4.2l-.3.3c-.1.1-.1.3-.1.5s0 .3.1.5.2.2.3.3c.1.1.2.1.4.1h.4c.4 0 .7-.1.9-.2.2-.1.4-.3.5-.5s.2-.4.2-.6V17c-.1.2-.2.3-.3.3zm-3.8-2.8c.2-.3.5-.6.8-.8s.7-.3 1.1-.4c.4-.1.8-.1 1.2-.1.3 0 .7 0 1.1.1s.7.2 1 .3c.3.2.5.4.7.6.2.3.3.6.3 1.1v3.8c0 .3 0 .7.1 1 0 .3.1.5.2.7h-2c0-.1-.1-.2-.1-.4V20c-.3.3-.7.6-1.1.7s-.9.2-1.3.2c-.3 0-.7 0-.9-.1-.3-.1-.6-.2-.8-.4-.2-.2-.4-.4-.5-.7-.1-.3-.2-.6-.2-1s.1-.8.2-1c.2-.3.3-.5.6-.6.2-.2.5-.3.8-.4s.6-.1.9-.2c.3 0 .6-.1.9-.1s.5-.1.8-.1c.2-.1.4-.1.5-.2s.2-.3.2-.5 0-.4-.1-.5l-.3-.3c-.1-.1-.2-.1-.4-.1h-.5c-.4 0-.7.1-.9.3-.2.2-.3.5-.4.9h-1.9c-.3-.7-.2-1.1 0-1.4zm-3.7 5.3c-.2.4-.5.7-.9.9-.3.2-.7.3-1.2.3s-1-.1-1.4-.3c-.4-.2-.7-.5-1-.9s-.5-.8-.6-1.3c-.1-.5-.2-1-.2-1.5s.1-1 .2-1.4c.1-.5.3-.9.6-1.2.3-.4.6-.6 1-.9.4-.2.8-.3 1.4-.3.4 0 .8.1 1.2.3s.7.5.9.8v-3.7h1.9v10.2h-1.8l-.1-1zm0-3.6c-.1-.3-.2-.5-.3-.7s-.3-.4-.5-.5-.5-.2-.8-.2-.6.1-.8.2c-.2.1-.4.3-.5.5s-.2.5-.3.8c-.1.3-.1.6-.1.9s0 .6.1.9.2.5.3.8c.1.2.3.4.5.5s.5.2.8.2.6-.1.8-.2.4-.3.5-.5.2-.5.3-.8.1-.6.1-.9-.1-.7-.1-1z"></path>
-            <path d="M6.9 32h2v-6.8h-2V32zm0-7.9h2v-1.5h-2v1.5zm48.2 6.3c-.3-.3-.5-.7-.5-1.3h5.1c0-.5 0-1-.1-1.5s-.3-.9-.6-1.3-.6-.7-1.1-.9c-.4-.2-1-.3-1.6-.3-.5 0-1 .1-1.5.3-.4.2-.8.4-1.1.8-.3.3-.6.7-.7 1.1s-.3.9-.3 1.4.1 1 .3 1.5.4.8.7 1.1c.3.3.7.6 1.1.7.4.1 1 .3 1.5.3.8 0 1.5-.2 2.1-.5.6-.4 1-.9 1.3-1.8H58c-.1.2-.2.4-.5.6s-.6.3-1 .3c-.7-.1-1.1-.2-1.4-.5zm2.2-3.6c.2.2.4.6.5 1.1h-3.2c0-.1 0-.3.1-.5s.1-.3.3-.5c.1-.1.3-.3.5-.4s.5-.1.8-.1c.4 0 .7.1 1 .4zm-6.8-1.6v-2h-2v2h-1.2v1.3h1.2v4c0 .3.1.6.2.8.1.2.3.4.5.5s.4.2.7.2.6.1.9.1H52v-1.5h-.6c-.3 0-.6 0-.7-.2-.1-.1-.2-.3-.2-.6v-3.4h1.4v-1.3l-1.4.1zM46.1 32v-6.8h-2v3.6c0 .7-.1 1.2-.4 1.5-.2.3-.6.5-1.2.5-.5 0-.8-.1-1-.4s-.3-.7-.3-1.3v-3.8h-2v4.2c0 .4 0 .8.1 1.2.1.3.2.6.4.9.2.2.4.4.8.6.3.1.8.2 1.3.2.4 0 .8-.1 1.2-.3.4-.2.7-.5 1-.9v1l2.1-.2zM37 25.2v-2h-2v2h-1.2v1.3H35v4c0 .3.1.6.2.8.1.2.3.4.5.5s.4.2.7.2.6.1.9.1h1.2v-1.5h-.6c-.3 0-.6 0-.7-.2-.2-.1-.2-.3-.2-.6v-3.4h1.4v-1.3l-1.4.1zM30.9 32h1.9v-6.8h-2l.1 6.8zm0-7.9h1.9v-1.5h-2l.1 1.5zm-2.7 1.1v-2h-2v2H25v1.3h1.2v4c0 .3.1.6.2.8.1.2.3.4.5.5s.4.2.7.2c.3 0 .6.1.9.1h1.2v-1.5h-.6c-.3 0-.6 0-.7-.2-.1-.1-.2-.3-.2-.6v-3.4h1.4v-1.3l-1.4.1zm-8.3 5.1c-.1-.1-.1-.3-.1-.5H18c0 .5.1.8.3 1.1.2.3.4.5.8.7.3.2.7.3 1.1.4s.8.1 1.2.1c.4 0 .8 0 1.2-.1.4-.1.7-.2 1-.4.3-.2.6-.4.7-.7.2-.3.3-.7.3-1.1 0-.3-.1-.6-.2-.8-.1-.2-.3-.4-.5-.5s-.5-.3-.7-.4c-.3-.1-.6-.2-.8-.2-.3-.1-.6-.1-.8-.2-.3-.1-.5-.1-.7-.2s-.4-.2-.5-.3c-.1-.1-.2-.2-.2-.4 0-.1 0-.3.1-.3.1-.1.2-.1.3-.2.1 0 .2-.1.3-.1h.4c.3 0 .7.1.9.2.3.1.4.4.4.7h1.9c0-.4-.2-.8-.3-1-.2-.3-.4-.5-.7-.7-.3-.2-.6-.3-1-.4h-1.3s-.8 0-1.1.1c-.4.1-.7.2-1 .3-.3.2-.5.4-.7.7s-.3.6-.3 1.1c0 .3.1.6.2.8.1.2.3.4.5.5s.4.2.7.3c.3.1.6.2.8.2.7.1 1.2.3 1.6.4s.6.4.6.6 0 .3-.1.4l-.3.3c-.1.1-.3.1-.4.1h-.4c-.2 0-.4 0-.6-.1-.2 0-.3-.1-.5-.2-.1.1-.2 0-.3-.2zm-9.6-5.1V32h2v-3.6c0-.7.1-1.2.3-1.5s.6-.5 1.2-.5c.5 0 .8.1 1 .4s.3.7.3 1.3V32H17v-4.2c0-.4 0-.8-.1-1.2-.1-.3-.2-.6-.4-.9-.2-.2-.5-.4-.8-.6-.3-.1-.8-.2-1.3-.2-.4 0-.8.1-1.2.3-.4.2-.7.5-1 .9v-1l-1.9.1z"></path>
-            <path d="M34.1.4v1c.3-.4.6-.8 1-1s.8-.3 1.2-.3c.5 0 1 .1 1.3.2s.6.4.8.6c.2.3.3.6.4 1s.1.8.1 1.3v4.6h-2V3.7c0-.6-.1-1.1-.3-1.4s-.5-.5-1-.5-.9.2-1.2.5c-.2.3-.4.9-.4 1.7v4h-2V.4h2.1zm-7.8 5.7c.3.3.7.5 1.3.5.4 0 .7-.1 1-.3.3-.2.5-.4.5-.7h1.7c-.3.9-.7 1.6-1.3 1.9-.6.4-1.3.6-2.1.6-.6 0-1.1-.1-1.5-.3-.5-.2-.8-.5-1.2-.8-.3-.3-.6-.8-.7-1.3-.2-.5-.3-1-.3-1.6s.1-1.1.3-1.6c.2-.5.4-.9.8-1.3.3-.4.7-.6 1.2-.8s.9-.3 1.5-.3 1.1.1 1.6.4c.5.2.8.6 1.1 1 .3.4.5.9.6 1.4.2.6.2 1.1.2 1.7h-5.2c0 .7.2 1.2.5 1.5zm2.2-4c-.2-.3-.6-.4-1.1-.4-.3 0-.6.1-.8.2-.2.1-.4.2-.5.4s-.2.3-.3.5c-.1.2-.1.4-.1.5H29c-.1-.5-.2-.9-.5-1.2zM17.4.4v1c.2-.4.5-.7.9-.9s.8-.3 1.2-.3c.6 0 1.1.1 1.5.3s.8.5 1 .9c.3.4.5.8.6 1.3s.2 1 .2 1.5-.1 1-.2 1.5-.3.9-.6 1.2c-.3.4-.6.6-1 .9-.4.2-.9.3-1.4.3-.4 0-.9-.1-1.2-.3-.4-.2-.7-.5-.9-.8v3.6h-2V.4h1.9zm2.6 6c.2-.1.4-.3.5-.5s.2-.5.3-.8c.1-.3.1-.6.1-.9 0-.3 0-.6-.1-.9s-.2-.6-.3-.8c-.1-.2-.3-.4-.5-.6-.2-.1-.5-.2-.8-.2s-.6.1-.8.2c-.2.1-.4.3-.5.5-.1.2-.2.5-.3.8-.1.3-.1.6-.1.9 0 .3 0 .6.1.9s.2.5.3.8c.1.2.3.4.5.5s.5.2.8.2c.3.1.6 0 .8-.1zM7.2 2.5c.2-.5.4-.9.7-1.2.3-.3.7-.6 1.2-.8s1-.3 1.5-.3 1.1.1 1.5.3c.5.2.8.5 1.2.8.3.3.6.8.8 1.3s.3 1 .3 1.6-.1 1.1-.3 1.6-.4.9-.7 1.2-.7.6-1.2.8-1 .3-1.5.3-1.1-.1-1.6-.3c-.4-.2-.8-.4-1.1-.8-.4-.3-.6-.7-.8-1.2-.2-.5-.3-1.1-.3-1.7S7 3 7.2 2.5zM9 5c0 .3.1.6.3.8.1.2.3.4.5.6s.5.2.8.2.6-.1.8-.2c.3-.2.5-.4.6-.6s.2-.5.3-.8.1-.6.1-.9c0-.3 0-.6-.1-.9s-.2-.5-.3-.8c-.1-.2-.3-.4-.5-.5s-.5-.2-.8-.2-.6.1-.8.2c-.3.2-.5.3-.6.6-.1.2-.2.4-.3.7 0 .3-.1.6-.1.9 0 .3.1.6.1.9z"></path>
-            </svg>
-        </span>
-        <address class="footer__address">
-            Open Data Institute, <br>
-            4th Floor, Kings Place, 90 York Way, London N1 9AG
-        </address>
-        <p class="footer__copyright">
-            <span>© The Open Data Institute. 2024</span>
-        </p>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-left">
+      <img src="/images/header-logo.svg" alt="MetadataWorks Logo" />
+      <p class="tagline">Amplify data impact</p>
+      <div class="social-icons">
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          class="social-links__link facebook"
+          href="https://www.facebook.com/MyODIHQ/"
+          aria-label="Visit our Facebook"
+        >
+          <img src="/images/facebook.svg" alt="Facebook Logo" />
+        </a>
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          class="social-links__link twitter"
+          href="https://twitter.com/ODIHQ"
+          aria-label="Visit our Twitter"
+        >
+          <img src="/images/twitter.svg" alt="Twitter Logo" />
+        </a>
+      </div>
     </div>
-    <div class="column">
-        <div class="footer__main-navigation">
-            <ul>
-            <li><a href="https://theodi.org/our-policies/" target="_blank">Our policies</a></li>
-            <li><a href="https://theodi.org/about-the-odi/contact-us/" target="_blank">Contact us</a></li>
-            <li><a href="https://theodi.org/about-the-odi/press-and-media/" target="_blank">Press and media</a></li>
-            <li><a href="https://theodi.org/insights/guides/the-odi-brand-book/" target="_blank">The ODI brand book</a></li>
-            <li><a href="https://theodi.org/about-the-odi/work-with-us/" target="_blank">Work with us</a></li>
-            <li><a href="https://theodi.org/sign-up-to-the-week-in-data/" target="_blank">Sign up to The Week in Data</a></li>
-            </ul>
-        </div>
+
+    <div class="footer-links">
+      <div>
+        <p>COMPANY</p>
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">Careers</a>
+      </div>
+      <div>
+        <p>PLATFORM</p>
+        <a href="#">Solutions</a>
+        <a href="#">Case Studies</a>
+        <a href="#">Demo</a>
+      </div>
+      <div>
+        <p>LEGAL</p>
+        <a href="https://metadataworks.ai/privacy-policy" target="_blank">Privacy Policy</a>
+      </div>
     </div>
-    <div class="column">
-        <ul class="footer__social-media">
-            <li>
-                <a rel="noopener noreferrer" target="_blank" class="social-links__link facebook" href="https://www.facebook.com/MyODIHQ/" aria-label="Visit our Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><path fill="#feffff" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"></path></svg>
-                </a>
-            </li>
-            <li>
-                <a rel="noopener noreferrer" target="_blank" class="social-links__link twitter" href="https://twitter.com/ODIHQ" aria-label="Visit our Twitter">
-                <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><path fill="#feffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
-                </a>
-            </li>
-            <li>
-                <a rel="noopener noreferrer" target="_blank" class="social-links__link linkedin" href="https://uk.linkedin.com/company/the-open-data-institute" aria-label="Visit our Linkedin">
-                <svg width="30px" height="30px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g transform="translate(0.9134, 0.017)" fill="#FFFFFF">
-                <path d="M10.6971893,3.81320251 C9.16869318,3.81320251 8.2262769,4.69935514 7.84783681,5.28409531 L7.79157315,5.28409531 L7.65962147,4.0201724 L5.16794514,4.0201724 C5.20545425,4.83197662 5.24363316,5.81391143 5.24363316,6.96396742 L5.24430297,6.96396742 L5.24430297,13.2487521 L8.11374958,13.2487521 L8.11374958,7.92580806 C8.11374958,7.6612349 8.15058888,7.39800136 8.2262769,7.20911622 C8.41449223,6.6806397 8.88536547,6.13340864 9.67841514,6.13340864 C10.7166136,6.13340864 11.131893,6.94387325 11.131893,8.13411756 L11.131893,13.2480823 L14,13.2480823 L14,7.77443203 C14,5.05770106 12.5847011,3.81320251 10.6971893,3.81320251 Z"></path>
-                <polygon points="2.94553061 4.01883279 0.0760840023 4.01883279 0.0760840023 13.2474125 2.94553061 13.2474125"></polygon>
-                <path d="M1.5094677,0 C0.585136155,0 -0.0176887627,0.622249277 0.000395984807,1.45347786 C-0.0176887627,2.24518792 0.585805961,2.88552194 1.49205275,2.88552194 C2.43580865,2.88552194 3.03930338,2.24518792 3.03930338,1.45347786 C3.02121863,0.622249277 2.43580865,0 1.5094677,0 L1.5094677,0 Z"></path>
-                </g>
-                </g>
-                </svg>
-                </a>
-            </li>
-        </ul>
-    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Copyright © 2025, Metadataworks</p>
+  </div>
 </footer>
